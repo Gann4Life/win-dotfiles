@@ -1,47 +1,39 @@
 # MrGann's Windows Config
-
-## Core
-| Wallpaper | [wallhaven.cc](https://whvn.cc/m3kqmy) |
-|-|-|
-| Fonts | [JetBrains Mono NerdFont](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip) |
-
-## Komorebi - Tiling window manager for Windows
+# 🚧 Still under construction! Please wait until everyting has been tested. 🚧
+## 🛠️ Install
+Make sure to use PowerShell~
+1. Setup [Komorebi](https://github.com/LGUG2Z/komorebi)
 ```powershell
 winget install lgug2z.komorebi lgug2z.whkd
 komorebic quickstart
 komorebic start --whkd
 ```
-**Config files**
-* Komorebi `$Env:USERPROFILE\komorebi.json`
-* [Hotkeys](https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes) `$Env:USERPROFILE\.config\whkdrc`
 
-## YASB (Yet Another Status Bar)
-`winget install --id AmN.yasb` <br>
-[🎨 Theme repository for YASB.](https://github.com/amnweb/yasb-themes)
-
-I've chosen to install 'Windows 11 Theme'
+2. Setup [Yasb](https://github.com/amnweb/yasb)
 ```powershell
-cd $Env:USERPROFILE\.config\yasb\
-iwr "https://raw.githubusercontent.com/amnweb/yasb-themes/refs/heads/main/themes/7d3895d4-454b-40db-a2f9-44a238d5793b/config.yaml" -OutFile .\config.yaml
-iwr "https://raw.githubusercontent.com/amnweb/yasb-themes/refs/heads/main/themes/7d3895d4-454b-40db-a2f9-44a238d5793b/styles.css" -OutFile .\styles.css
+winget install AmN.yasb
 ```
+
+3. Load my config (Do previous steps first!)
+```powershell
+iwr -useb "https://raw.githubusercontent.com/Gann4Life/win-dotfiles/refs/heads/master/scripts/Install.ps1" | iex
+```
+
+Optional features:
+* 🎨 [Theme repository for YASB.](https://github.com/amnweb/yasb-themes)
+* 🕹️ [Millenium](https://github.com/SteamClientHomebrew/Millennium) (Steam themes)
+* 🗨️ [BetterDiscord](https://betterdiscord.app/) (For discord themes and plugins)
+* ⚙️ [Windhawk](https://windhawk.net/) (System customization)
+
+
+## 📚 Resources
+* [Wallpaper](https://whvn.cc/m3kqmy) from wallhaven.cc
+* [JetBrains Mono NerdFont](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip) (Recommended!)
+* List of [Virtual KeyCodes](https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes) for [whkd](https://github.com/LGUG2Z/whkd)
 
 ## Oh My Posh - PowerShell Theme
-/// WIP /// TO-DO ///
-
-# Others
-Windhawk - System customization
-```powershell
-winget install RamenSoftware.Windhawk
-```
----
-[Millenium - Steam themes](https://github.com/SteamClientHomebrew/Millennium)
-```powershell
-iwr -useb "https://raw.githubusercontent.com/SteamClientHomebrew/Millennium/main/scripts/install.ps1" | iex
-```
-[Theme (steambrew.app)](https://steambrew.app/theme?id=F8h9ZhwOdoNygNcAfjIZ)
----
-
+/// WIP ///
 
 ## Preview
 ![Imgur](https://imgur.com/T29BNHJ.png)
+![Imgur](https://imgur.com/67KSHII.gif)
