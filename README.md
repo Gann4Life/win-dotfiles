@@ -1,7 +1,3 @@
----
-updated_at: 2024-09-22T00:45:33.258-03:00
-edited_seconds: 480
----
 ## Oh My Posh - PowerShell Theme
 /// WIP /// TO-DO ///
 
