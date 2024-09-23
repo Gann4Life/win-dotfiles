@@ -2,10 +2,11 @@
 # 🚧 Still under construction! Please wait until everyting has been tested. 🚧
 ## 🛠️ Install
 Make sure to use PowerShell~
-1. Setup [Komorebi](https://github.com/LGUG2Z/komorebi)
+1. Setup [Komorebi](https://github.com/LGUG2Z/komorebi) <br>
 `winget install lgug2z.komorebi lgug2z.whkd`
-Restart your terminal and run komorebi:
-`komorebic quickstart`
+
+Restart your terminal and run komorebi: <br>
+`komorebic quickstart` <br>
 `komorebic start --whkd`
 
 2. Setup [Yasb](https://github.com/amnweb/yasb)
