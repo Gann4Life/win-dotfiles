@@ -5,6 +5,7 @@ Make sure to use PowerShell~
 1. Setup [Komorebi](https://github.com/LGUG2Z/komorebi)
 ```powershell
 winget install lgug2z.komorebi lgug2z.whkd
+# Restart your terminal and run komorebi:
 komorebic quickstart
 komorebic start --whkd
 ```
