@@ -47,7 +47,7 @@ while ($true) {
         continue
     }
 
-    $selectedEdition = $editions.Keys[$choiceInt - 1]
+    $selectedEdition = $editions.Keys[$choiceInt]
     $productKey = $editions[$selectedEdition]
 
     # URL of the ActivateWindowsKey.ps1 script
