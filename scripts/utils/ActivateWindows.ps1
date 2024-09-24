@@ -56,7 +56,7 @@ while ($true) {
         continue
     }
 
-    $selectedEdition = $dictKeys[$choice]
+    $selectedEdition = $dictKeys[$choice - 1]
     $productKey = $editions[$selectedEdition]
 
     # Check if running as administrator
