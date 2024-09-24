@@ -35,8 +35,11 @@ while ($true) {
     DisplayOptions
     $choice = Read-Host "Enter the number corresponding to your choice"
 
+    # Convert choice to integer
+    $choice = [int]$choice
+
     # Validate and get the product key based on user choice
-    if ($choice -match '^\d+$' -and $choice -gt 0 -and $choice -le $editions.Count) {
+    if ($choice -gt 0 -and $choice -le $editions.Count) {
         $selectedEdition = $editions.Keys[$choice - 1]
         $productKey = $editions[$selectedEdition]
 
