@@ -20,6 +20,8 @@ $editions = @{
     "Enterprise G N"         = "44RPN-FTY23-9VTTB-MP9BX-T84FV"
 }
 
+$dictKeys = @($editions.Keys)
+
 # Display options to the user
 function DisplayOptions {
     Write-Host "Choose a Windows edition to activate:"
@@ -47,7 +49,7 @@ while ($true) {
         continue
     }
 
-    $selectedEdition = $editions.Keys[$choiceInt]
+    $selectedEdition = $dictKeys[$choiceInt]
     $productKey = $editions[$selectedEdition]
 
     # URL of the ActivateWindowsKey.ps1 script
