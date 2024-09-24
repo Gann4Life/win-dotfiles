@@ -1,5 +1,7 @@
 # MrGann's Windows Config
 # 🚧 Still under construction! Please wait until everyting has been tested. 🚧
+## Prequisites
+* [JetBrains NerdFonts](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip) (mostly for Yasb, see step 2)
 ## 🛠️ Install
 Make sure to use PowerShell~
 1. Setup [Komorebi](https://github.com/LGUG2Z/komorebi)
@@ -29,7 +31,6 @@ Optional features:
 
 ## 📚 Resources
 * [Wallpaper](https://whvn.cc/m3kqmy) from wallhaven.cc
-* [JetBrains Mono NerdFont](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip) (Recommended!)
 * List of [Virtual KeyCodes](https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes) for [whkd](https://github.com/LGUG2Z/whkd)
 * 🔑 Need to activate Windows? [**Try my script**](https://github.com/Gann4Life/win-dotfiles/tree/master/scripts/utils)!
 
