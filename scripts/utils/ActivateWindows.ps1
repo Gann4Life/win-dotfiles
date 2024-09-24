@@ -16,9 +16,11 @@ function DisplayOptions {
 
 function Invoke-Activation($ProductKey, $Edition) {
     Write-Host "Running slmgr commands for $Edition with the provided key..."
-    slmgr /ipk $ProductKey
-    slmgr /skms kms.digiboy.ir
-    slmgr /ato
+
+    Start-Process -FilePath "slmgr.vbs" -ArgumentList "/ipk", $ProductKey -Wait
+    Start-Process -FilePath "slmgr.vbs" -ArgumentList "/skms", "kms.digiboy.ir" -Wait
+    Start-Process -FilePath "slmgr.vbs" -ArgumentList "/ato" -Wait
+
     Write-Host "Activation commands executed for $Edition."
     Pause
 }
