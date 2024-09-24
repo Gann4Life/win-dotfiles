@@ -87,6 +87,6 @@ while ($true) {
     $productKey = $editions[$selectedEdition]
 
     # Execute the script with the product key and edition as arguments
-    Invoke-Activation -ProductKey $productKey -Edition "$selectedEdition"
+    Invoke-Activation -ProductKey "$productKey" -Edition "$selectedEdition"
     exit
 }
