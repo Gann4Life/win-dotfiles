@@ -52,7 +52,7 @@ while ($true) {
         # Check if running as administrator
         if (-not (Test-Administrator)) {
             Write-Host "Script is not running as administrator. Restarting with elevated privileges..."
-            Start-Process powershell -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`" -ProductKey `"$productKey`" -Edition `"$selectedEdition`"" -Verb RunAs
+            Start-Process powershell -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`" -ProductKey `"$productKey`" -Edition `"$selectedEdition`"" -Verb RunAs -Wait
             exit
         }
 
