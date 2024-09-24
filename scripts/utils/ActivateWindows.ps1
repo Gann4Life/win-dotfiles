@@ -21,39 +21,44 @@ $editions = @{
 }
 
 # Display options to the user
-Write-Host "Choose a Windows edition to activate:"
-$index = 1
-foreach ($edition in $editions.Keys) {
-    Write-Host "$index. $edition"
-    $index++
-}
-
-# Capture user choice
-$choice = Read-Host "Enter the number corresponding to your choice"
-
-# Validate and get the product key based on user choice
-if ($choice -match '^\d+$' -and $choice -gt 0 -and $choice -le $editions.Count) {
-    $selectedEdition = $editions.Keys[$choice - 1]
-    $productKey = $editions[$selectedEdition]
-
-    # URL of the ActivateWindowsKey.ps1 script
-    $scriptUrl = "https://raw.githubusercontent.com/Gann4Life/win-dotfiles/refs/heads/master/scripts/utils/ActivateWindowsKey.ps1"
-
-    # Download the script content
-    $scriptContent = (iwr -Uri $scriptUrl -UseBasicParsing).Content
-
-    # Check if running as administrator
-    if (-not (Test-Administrator)) {
-        Write-Host "Script is not running as administrator. Restarting with elevated privileges..."
-        Start-Process powershell -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`" -ProductKey `"$productKey`" -Edition `"$selectedEdition`"" -Verb RunAs
-        exit
+function DisplayOptions {
+    Write-Host "Choose a Windows edition to activate:"
+    $index = 1
+    foreach ($edition in $editions.Keys) {
+        Write-Host "$index. $edition"
+        $index++
     }
-
-    # Execute the script with the product key and edition as arguments
-    Write-Host "Executing the activation script..."
-    iex "$scriptContent -ProductKey $productKey -Edition '$selectedEdition'"
-    Write-Host "Activation script executed."
-} else {
-    Write-Host "Invalid choice. Please run the script again and choose a valid option."
 }
 
+# Main logic to capture and validate user choice
+while ($true) {
+    DisplayOptions
+    $choice = Read-Host "Enter the number corresponding to your choice"
+
+    # Validate and get the product key based on user choice
+    if ($choice -match '^\d+$' -and $choice -gt 0 -and $choice -le $editions.Count) {
+        $selectedEdition = $editions.Keys[$choice - 1]
+        $productKey = $editions[$selectedEdition]
+
+        # URL of the ActivateWindowsKey.ps1 script
+        $scriptUrl = "https://raw.githubusercontent.com/Gann4Life/win-dotfiles/refs/heads/master/scripts/utils/ActivateWindowsKey.ps1"
+
+        # Download the script content
+        $scriptContent = (iwr -Uri $scriptUrl -UseBasicParsing).Content
+
+        # Check if running as administrator
+        if (-not (Test-Administrator)) {
+            Write-Host "Script is not running as administrator. Restarting with elevated privileges..."
+            Start-Process powershell -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`" -ProductKey `"$productKey`" -Edition `"$selectedEdition`"" -Verb RunAs
+            exit
+        }
+
+        # Execute the script with the product key and edition as arguments
+        Write-Host "Executing the activation script..."
+        iex "$scriptContent -ProductKey $productKey -Edition '$selectedEdition'"
+        Write-Host "Activation script executed."
+        break
+    } else {
+        Write-Host "Invalid choice. Please enter a valid number."
+    }
+}
