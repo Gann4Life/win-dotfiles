@@ -37,8 +37,9 @@ while ($true) {
     DisplayOptions
     $choice = Read-Host "Enter the number corresponding to your choice"
 
-    # Validate and convert choice to integer
-    if (-not [int]::TryParse($choice, [ref]$choiceInt)) {
+    try {
+        $choiceInt = [int]$choice
+    } catch {
         Write-Host "Invalid input. Please enter a valid number."
         continue
     }
