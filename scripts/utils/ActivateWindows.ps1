@@ -60,7 +60,6 @@ while ($true) {
         Write-Host "Executing the activation script..."
         iex "$scriptContent -ProductKey $productKey -Edition '$selectedEdition'"
         Write-Host "Activation script executed."
-        exit
     } else {
         Write-Host "Invalid choice. Please enter a valid number."
     }
