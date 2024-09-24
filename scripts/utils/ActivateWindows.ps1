@@ -29,7 +29,7 @@ function Invoke-Activation($ProductKey, $Edition) {
     Start-Process -FilePath "slmgr.vbs" -ArgumentList "/ato" -Wait
 
     LogMessage "Done! Your product is ready to use.
-    [Result] Windows 10/11 $Edition : Key: $Key
+    [Result] Windows 10/11 $Edition : $ProductKey
     "
     Pause
 }
