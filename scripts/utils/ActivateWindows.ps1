@@ -9,19 +9,29 @@ function DisplayOptions {
     Write-Host "Choose a Windows edition to activate:"
     $index = 1
     foreach ($edition in $editions.Keys) {
-        Write-Host "$index. $edition"
+        Write-Host "$index) $edition"
         $index++
     }
+}
+
+function LogMessage($msg) {
+    Write-Host "[Activation] $msg"
 }
 
 function Invoke-Activation($ProductKey, $Edition) {
     Write-Host "Running slmgr commands for $Edition with the provided key..."
 
+    LogMessage "Installing your product key..."
     Start-Process -FilePath "slmgr.vbs" -ArgumentList "/ipk", $ProductKey -Wait
+    LogMessage "Setting key management service..." 
     Start-Process -FilePath "slmgr.vbs" -ArgumentList "/skms", "kms.digiboy.ir" -Wait
+    LogMessage "Activating your product..."
     Start-Process -FilePath "slmgr.vbs" -ArgumentList "/ato" -Wait
 
-    Write-Host "Activation commands executed for $Edition."
+    LogMessage $@"[Activation] Done! Your product is ready to use.
+    Edition: $Edition
+    Key: $Key
+    "@
     Pause
 }
 
@@ -44,7 +54,22 @@ $editions = @{
 $dictKeys = @($editions.Keys)
 $adminScriptUrl = "https://raw.githubusercontent.com/Gann4Life/win-dotfiles/refs/heads/master/scripts/utils/ActivateWindows.ps1"
 
+# Check if running as administrator
+if (-not (Test-Administrator)) {
+    # Ask user if it wants to proceed with elevated privileges
+    $title    = 'The script needs to run with elevated privileges.'
+    $question = 'Do you want to re-run with administrator rights?'
+    $choices  = '&Yes', '&No'
 
+    $decision = $Host.UI.PromptForChoice($title, $question, $choices, 1)
+    if($decision -eq 0) {
+        Start-Process powershell -ArgumentList "-NoProfile -ExecutionPolicy Bypass -Command `"& {iwr -Uri $adminScriptUrl -UseBasicParsing | iex} -ProductKey '$productKey' -Edition '$selectedEdition'`"" -Verb RunAs 
+    } else {
+        Write-Host "Ok! The script will now exit."
+        Pause
+    }
+    exit
+}
 
 # Main logic to capture and validate user choice
 while ($true) {
@@ -61,16 +86,7 @@ while ($true) {
     $selectedEdition = $dictKeys[$choice - 1]
     $productKey = $editions[$selectedEdition]
 
-    # Check if running as administrator
-    if (-not (Test-Administrator)) {
-        Write-Host "Script is not running as administrator. Restarting with elevated privileges..."
-        Start-Process powershell -ArgumentList "-NoProfile -ExecutionPolicy Bypass -Command `"& {iwr -Uri $adminScriptUrl -UseBasicParsing | iex} -ProductKey '$productKey' -Edition '$selectedEdition'`"" -Verb RunAs -Wait
-        exit
-    }
-
     # Execute the script with the product key and edition as arguments
-    Write-Host "Executing the activation script..."
     Invoke-Activation -ProductKey $productKey -Edition "$selectedEdition"
-    Write-Host "Activation script executed."
     exit
 }
