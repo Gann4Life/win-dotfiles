@@ -36,21 +36,15 @@ function DisplayOptions {
 while ($true) {
     DisplayOptions
     $choice = Read-Host "Enter the number corresponding to your choice"
-
-    try {
-        $choiceInt = [int]$choice
-    } catch {
-        Write-Host "Invalid input. Please enter a valid number."
-        continue
-    }
+    $choice = [int]$choice
 
     # Check if the choice is within the valid range
-    if ($choiceInt -le 0 -or $choiceInt -gt $editions.Count) {
+    if ($choice -le 0 -or $choice -gt $editions.Count) {
         Write-Host "Invalid choice. Please enter a number between 1 and $($editions.Count)."
         continue
     }
 
-    $selectedEdition = $dictKeys[$choiceInt]
+    $selectedEdition = $dictKeys[$choice]
     $productKey = $editions[$selectedEdition]
 
     # URL of the ActivateWindowsKey.ps1 script
