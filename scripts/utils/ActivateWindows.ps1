@@ -36,20 +36,18 @@ while ($true) {
     $choice = Read-Host "Enter the number corresponding to your choice"
 
     # Validate and convert choice to integer
-    if (-not ($choice -match '^\d+$')) {
+    if (-not [int]::TryParse($choice, [ref]$choiceInt)) {
         Write-Host "Invalid input. Please enter a valid number."
         continue
     }
 
-    $choice = [int]$choice
-
     # Check if the choice is within the valid range
-    if ($choice -le 0 -or $choice -gt $editions.Count) {
+    if ($choiceInt -le 0 -or $choiceInt -gt $editions.Count) {
         Write-Host "Invalid choice. Please enter a number between 1 and $($editions.Count)."
         continue
     }
 
-    $selectedEdition = $editions.Keys[$choice - 1]
+    $selectedEdition = $editions.Keys[$choiceInt - 1]
     $productKey = $editions[$selectedEdition]
 
     # URL of the ActivateWindowsKey.ps1 script
