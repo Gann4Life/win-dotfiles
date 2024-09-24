@@ -9,3 +9,4 @@ slmgr /ipk $ProductKey
 slmgr /skms kms.digiboy.ir
 slmgr /ato
 Write-Host "Activation commands executed for $Edition."
+Pause
