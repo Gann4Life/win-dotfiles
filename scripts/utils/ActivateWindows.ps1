@@ -56,7 +56,8 @@ while ($true) {
     # Check if running as administrator
     if (-not (Test-Administrator)) {
         Write-Host "Script is not running as administrator. Restarting with elevated privileges..."
-        Start-Process powershell -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`" -ProductKey `"$productKey`" -Edition `"$selectedEdition`"" -Verb RunAs -Wait
+        $adminScriptUrl = "https://raw.githubusercontent.com/Gann4Life/win-dotfiles/refs/heads/master/scripts/utils/ActivateWindows.ps1"
+        Start-Process powershell -ArgumentList "-NoProfile -ExecutionPolicy Bypass -Command `"& {iwr -Uri $adminScriptUrl -UseBasicParsing | iex} -ProductKey '$productKey' -Edition '$selectedEdition'`"" -Verb RunAs -Wait
         exit
     }
 
