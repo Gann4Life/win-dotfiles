@@ -4,6 +4,25 @@ function Test-Administrator {
     return $currentUser.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 }
 
+# Display options to the user
+function DisplayOptions {
+    Write-Host "Choose a Windows edition to activate:"
+    $index = 1
+    foreach ($edition in $editions.Keys) {
+        Write-Host "$index. $edition"
+        $index++
+    }
+}
+
+function Invoke-Activation($ProductKey, $Edition) {
+    Write-Host "Running slmgr commands for $Edition with the provided key..."
+    slmgr /ipk $ProductKey
+    slmgr /skms kms.digiboy.ir
+    slmgr /ato
+    Write-Host "Activation commands executed for $Edition."
+    Pause
+}
+
 # Dictionary of Windows editions and their corresponding keys
 $editions = @{
     "Pro"                    = "W269N-WFGWX-YVC9B-4J6C9-T83GX"
@@ -21,16 +40,9 @@ $editions = @{
 }
 
 $dictKeys = @($editions.Keys)
+$adminScriptUrl = "https://raw.githubusercontent.com/Gann4Life/win-dotfiles/refs/heads/master/scripts/utils/ActivateWindows.ps1"
 
-# Display options to the user
-function DisplayOptions {
-    Write-Host "Choose a Windows edition to activate:"
-    $index = 1
-    foreach ($edition in $editions.Keys) {
-        Write-Host "$index. $edition"
-        $index++
-    }
-}
+
 
 # Main logic to capture and validate user choice
 while ($true) {
@@ -47,23 +59,16 @@ while ($true) {
     $selectedEdition = $dictKeys[$choice]
     $productKey = $editions[$selectedEdition]
 
-    # URL of the ActivateWindowsKey.ps1 script
-    $scriptUrl = "https://raw.githubusercontent.com/Gann4Life/win-dotfiles/refs/heads/master/scripts/utils/ActivateWindowsKey.ps1"
-
-    # Download the script content
-    $scriptContent = (iwr -Uri $scriptUrl -UseBasicParsing).Content
-
     # Check if running as administrator
     if (-not (Test-Administrator)) {
         Write-Host "Script is not running as administrator. Restarting with elevated privileges..."
-        $adminScriptUrl = "https://raw.githubusercontent.com/Gann4Life/win-dotfiles/refs/heads/master/scripts/utils/ActivateWindows.ps1"
         Start-Process powershell -ArgumentList "-NoProfile -ExecutionPolicy Bypass -Command `"& {iwr -Uri $adminScriptUrl -UseBasicParsing | iex} -ProductKey '$productKey' -Edition '$selectedEdition'`"" -Verb RunAs -Wait
         exit
     }
 
     # Execute the script with the product key and edition as arguments
     Write-Host "Executing the activation script..."
-    iex "$scriptContent -ProductKey $productKey -Edition '$selectedEdition'"
+    Invoke-Activation -ProductKey $productKey -Edition "$selectedEdition"
     Write-Host "Activation script executed."
     exit
 }
