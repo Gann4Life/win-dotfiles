@@ -67,5 +67,24 @@
         }
       ]
     }
+  ],
+  "float_rules": [
+    {
+      "kind": "Exe",
+      "id": "Unity.exe"
+    },
+    {
+      "kind": "Exe",
+      "id": "PowerToys",
+      "matching_strategy": "Contains"
+    },
+    {
+      "kind": "Exe",
+      "id": "obs64.exe"
+    },
+    {
+      "kind": "Exe",
+      "id": "nextcloud.exe"
+    }
   ]
 }
