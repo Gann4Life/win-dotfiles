@@ -25,6 +25,7 @@ if (Test-Path "$repoRoot\README.md") {
     Update-ConfigFile -HomePath ".config\whkdrc"
     Update-ConfigFile -HomePath ".config\yasb\config.yaml"
     Update-ConfigFile -HomePath ".config\yasb\styles.css"
+    Update-ConfigFile -HomePath ".config\starship.toml"
 } else {
     Write-Host "Please download the repository and run the file located at 'scripts\UpdateRepo.ps1'."
 }
