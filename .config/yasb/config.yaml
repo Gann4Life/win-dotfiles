@@ -17,7 +17,7 @@ bars:
       enabled: true 
       acrylic: true 
       dark_mode: true
-      round_corners: true
+      round_corners: false
       border_color: None
     window_flags:
       always_on_top: false
@@ -26,10 +26,10 @@ bars:
       width: "100%"
       height: 36
     padding:
-      top: 8
-      left: 8
-      bottom: 2
-      right: 8
+      top: 0
+      left: 0
+      bottom: 0
+      right: 0
     widgets:
       left:
         [
