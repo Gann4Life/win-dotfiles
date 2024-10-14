@@ -90,6 +90,14 @@
     {
       "kind": "Exe",
       "id": "DAZ3DIM.exe"
+    },
+    {
+      "kind": "Exe",
+      "id": "prismlauncher.exe"
+    },
+    {
+      "kind": "Exe",
+      "id": "maya.exe"
     }
   ]
 }
