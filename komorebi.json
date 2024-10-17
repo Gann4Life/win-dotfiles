@@ -89,7 +89,8 @@
     },
     {
       "kind": "Exe",
-      "id": "DAZ3DIM.exe"
+      "id": "DAZ",
+      "matching_strategy": "Contains"
     },
     {
       "kind": "Exe",
