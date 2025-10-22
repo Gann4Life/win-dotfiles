@@ -1,4 +1,7 @@
-# Activate Windows 10/11
+# Activate Windows
+ℹ I highly suggest to use [this tool](https://github.com/massgravel/Microsoft-Activation-Scripts) rather than my own script.
+
+# Activate Windows 10/11 (OLD / OBSOLETE)
 Run in powershell the following command:
 ```powershell
 iwr -useb "https://raw.githubusercontent.com/Gann4Life/win-dotfiles/refs/heads/master/scripts/utils/ActivateWindows.ps1" | iex
