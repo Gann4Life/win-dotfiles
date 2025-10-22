@@ -1,5 +1,6 @@
 # MrGann's Windows Config
-# 🚧 Still under construction! Please wait until everyting has been tested. 🚧
+<!-- # 🚧 Still under construction! Please wait until everyting has been tested. 🚧 -->
+# 🚧 DO NOT USE! I am working on a new setup that uses catppuccin palettes. 🚧
 ## Prequisites
 * [JetBrains NerdFonts](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip) (mostly for Yasb, see step 2)
 ## 🛠️ Install
