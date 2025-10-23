@@ -1,9 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/master/schema.asc.json",
-  "ShareX": {
-    "kind": "Exe",
-    "id": "sharex.exe",
-    "matching_strategy": "Equals"
+  "Wezterm": {
+    "floating": [
+      {
+        "kind": "Class",
+        "id": "floating",
+        "matching_strategy": "Equals"
+      }
+    ]
   },
   "1Password": {
     "ignore": [
@@ -2265,6 +2269,13 @@
     ]
   },
   "ShareX": {
+    "floating": [
+      {
+        "kind": "Exe",
+        "id": "ShareX.exe",
+        "matching_strategy": "Equals"
+      }
+    ],
     "tray_and_multi_window": [
       {
         "kind": "Exe",

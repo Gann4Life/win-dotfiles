@@ -13,22 +13,22 @@ function Start-FloatingWindow {
     }
     
     # Wait for window to appear
-    $beforeCount = (Get-Process wezterm-gui -ErrorAction SilentlyContinue | 
-                    Where-Object { $_.MainWindowHandle -ne 0 }).Count
-    
-    $timeout = 50
-    $count = 0
-    while ($count -lt $timeout) {
-        $afterCount = (Get-Process wezterm-gui -ErrorAction SilentlyContinue | 
-                       Where-Object { $_.MainWindowHandle -ne 0 }).Count
-        
-        if ($afterCount -gt $beforeCount) {
-            break
-        }
-        
-        Start-Sleep -Milliseconds 100
-        $count++
-    }
-    
-    komorebic toggle-float
+    #$beforeCount = (Get-Process wezterm-gui -ErrorAction SilentlyContinue | 
+    #                Where-Object { $_.MainWindowHandle -ne 0 }).Count
+    #
+    #$timeout = 50
+    #$count = 0
+    #while ($count -lt $timeout) {
+    #    $afterCount = (Get-Process wezterm-gui -ErrorAction SilentlyContinue | 
+    #                   Where-Object { $_.MainWindowHandle -ne 0 }).Count
+    #    
+    #    if ($afterCount -gt $beforeCount) {
+    #        break
+    #    }
+    #    
+    #    Start-Sleep -Milliseconds 100
+    #    $count++
+    #}
+    #
+    #komorebic toggle-float
 }
