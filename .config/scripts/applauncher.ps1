@@ -5,7 +5,7 @@ Start-FloatingWindow {
 	$apps = Get-StartApps | Where-Object AppID
 
 # Build a tab-separated list for fzf
-	$choice = $apps | ForEach-Object { "$($_.Name)`t$($_.AppID)" } | fzf
+	$choice = $apps | ForEach-Object { "$($_.Name)`t$($_.AppID)" } | fzf --prompt "Run: "
 
 	if ($choice) {
 	    # Extract the AppID from the selection

@@ -2,7 +2,7 @@
 
 Start-FloatingWindow {
     Set-Location ~
-    $file = fzf
+    $file = fzf --prompt "Open with nvim: "
     if ($file) {
         nvim $file
     }

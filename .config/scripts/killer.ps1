@@ -8,7 +8,7 @@ Start-FloatingWindow {
 		$_.Id, `
 		[math]::Round($_.CPU, 2), `
 		[math]::Round($_.WorkingSet / 1MB, 2)
-	} | fzf --header="Process Name                             | PID      | CPU Usage  | Memory" --height=40%
+	} | fzf --prompt "Kill: " --header="Process Name                             | PID      | CPU Usage  | Memory" --height=40%
 
 # Extract the process name (first part before the |) and kill ALL instances
 	if ($selected) {

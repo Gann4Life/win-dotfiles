@@ -2,7 +2,8 @@
 
 # Reload whkd configuration
 # alt + o                 : taskkill /f /im whkd.exe && start /b whkd # if shell is cmd
-alt + o                 : taskkill /f /im whkd.exe; Start-Process whkd -WindowStyle hidden # if shell is pwsh / powershell
+# alt + o                 : taskkill /f /im whkd.exe; Start-Process whkd -WindowStyle hidden # if shell is pwsh / powershell
+alt + o 				: powershell -NoProfile ~\.config\scripts\whkd-restart.ps1
 alt + shift + o         : komorebic reload-configuration
 
 alt + i                 : komorebic toggle-shortcuts
@@ -21,8 +22,8 @@ alt + n         		: powershell -NoProfile ~\.config\scripts\notes.ps1
 # alt + f				: wezterm-gui -e Get-StartApps | fzf | Invoke-Item
 alt + c 				: code
 # alt + g 				: wezterm-gui -e gitui
-alt + s 				: sharex -silent -RectangleRegion
-alt + shift + s			: sharex -silent -ScreenRecord 
+alt + s 				: sharex -s -RectangleRegion -autoclose
+alt + shift + s			: sharex -s -ScreenRecorder -autoclose
 alt + p 				: zen
 alt + shift + p			: zen --private
 alt + shift + m 		: wezterm-gui -e btop
