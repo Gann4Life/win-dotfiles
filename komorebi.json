@@ -1,38 +1,24 @@
 {
-  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.28/schema.json",
-  "app_specific_configuration_path": "$Env:USERPROFILE/applications.yaml",
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.38/schema.json",
+  "app_specific_configuration_path": "$Env:USERPROFILE/applications.json",
   "window_hiding_behaviour": "Cloak",
   "cross_monitor_move_behaviour": "Insert",
-  "mouse_follows_focus": false,
-  "default_workspace_padding": 0,
-  "default_container_padding": 5,
+  "default_workspace_padding": 10,
+  "default_container_padding": 10,
   "border": true,
   "border_width": 4,
   "border_offset": -1,
-  "border_colours": {
-    "single": "#ffffff",
-    "stack": "#ffffff",
-    "monocle": "#ffffff",
-    "unfocused": "#000000"
+  "theme": {
+    "palette": "Catppuccin",
+    "name": "Mocha",
+    "unfocused_border": "Surface2",
+    "bar_accent": "Teal"
   },
   "animation": {
-	  "enabled": true,
-	  "duration": 250,
-	  "fps": 60,
-	  "style": "EaseOutExpo"
-  },
-  "transparency": true,
-  "transparency_alpha": 240,
-  "stackbar": {
-    "height": 24,
-    "mode": "OnStack",
-    "label": "Title",
-    "tabs": {
-      "width": 220,
-      "focused_text": "#ffffff",
-      "unfocused_text": "#b3b3b3",
-      "background": "#141414"
-    }
+    "enabled": false,
+    "duration": 250,
+    "fps": 120,
+    "style": "EaseOutBack"
   },
   "monitors": [
     {
@@ -66,39 +52,6 @@
           "layout": "RightMainVerticalStack"
         }
       ]
-    }
-  ],
-  "float_rules": [
-    {
-      "kind": "Exe",
-      "id": "Unity",
-      "matching_strategy": "Contains"
-    },
-    {
-      "kind": "Exe",
-      "id": "PowerToys",
-      "matching_strategy": "Contains"
-    },
-    {
-      "kind": "Exe",
-      "id": "obs64.exe"
-    },
-    {
-      "kind": "Exe",
-      "id": "nextcloud.exe"
-    },
-    {
-      "kind": "Exe",
-      "id": "DAZ",
-      "matching_strategy": "Contains"
-    },
-    {
-      "kind": "Exe",
-      "id": "prismlauncher.exe"
-    },
-    {
-      "kind": "Exe",
-      "id": "maya.exe"
     }
   ]
 }
