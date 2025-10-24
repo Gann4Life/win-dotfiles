@@ -47,6 +47,11 @@
 # * zen-browser
 # * sharex
 # * wezterm (already configured under .config\wezterm I believe)
+# Qutebrowser (catppuccin)
+# git clone https://github.com/catppuccin/qutebrowser.git $env:APPDATA\qutebrowser\config\catppuccin
+# cp .\AppData\Roaming\qutebrowser\config\config.py $env:APPDATA\qutebrowser\config\config.py
+
+
 
 # // EXTRA NOTES //
 #

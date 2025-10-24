@@ -1,12 +1,11 @@
 .shell powershell
 
-# Reload whkd configuration
-# alt + o                 : taskkill /f /im whkd.exe && start /b whkd # if shell is cmd
-# alt + o                 : taskkill /f /im whkd.exe; Start-Process whkd -WindowStyle hidden # if shell is pwsh / powershell
-alt + o 				: powershell -NoProfile ~\.config\scripts\whkd-restart.ps1
-alt + shift + o         : komorebic reload-configuration
-
 alt + i                 : komorebic toggle-shortcuts
+
+# < --- /// CUSTOM HOTKEYS /// --- >
+alt + o 				: powershell -NoProfile ~\.config\scripts\wm\whkd-restart.ps1
+alt + shift + o         : powershell -NoProfile ~\.config\scripts\wm\komorebi-reload.ps1 #komorebic reload-configuration
+
 
 # App shortcuts - these require shell to be pwsh / powershell
 # The apps will be focused if open, or launched if not open
@@ -15,23 +14,26 @@ alt + i                 : komorebic toggle-shortcuts
 
 # REQUIREMENTS:
 # wezterm, vscode, yazi, nvim, fzf, sharex, zen-browser, btop
-alt + vk_return         : wezterm-gui 
-alt + shift + vk_return	: powershell -NoProfile ~\.config\scripts\scratchpad.ps1
-alt + e					: wezterm-gui -e yazi ~\Desktop
-alt + n         		: powershell -NoProfile ~\.config\scripts\notes.ps1
-# alt + f				: wezterm-gui -e Get-StartApps | fzf | Invoke-Item
+alt + vk_return         : wezterm-gui # ~\.config\scripts\launchers\terminal.ps1
+alt + shift + vk_return	: powershell -NoProfile ~\.config\scripts\launchers\scratchpad.ps1
+alt + e					: powershell -NoProfile ~\.config\scripts\launchers\filebrowser.ps1 #wezterm-gui -e yazi ~\Desktop
+alt + n         		: powershell -NoProfile ~\.config\scripts\launchers\notes.ps1
 alt + c 				: code
 # alt + g 				: wezterm-gui -e gitui
-alt + s 				: sharex -s -RectangleRegion -autoclose
-alt + shift + s			: sharex -s -ScreenRecorder -autoclose
-alt + p 				: zen
-alt + shift + p			: zen --private
+
 alt + shift + m 		: wezterm-gui -e btop
 # FZF FLOATING WINDOWS
-alt + space				: powershell -NoProfile ~\.config\scripts\applauncher.ps1
-alt + shift + n 		: powershell -NoProfile ~\.config\scripts\run-with-nvim.ps1
-alt + shift + c			: powershell -NoProfile ~\.config\scripts\run-with-code.ps1 # wezterm-gui -e code $(Join-Path $PWD $(fzf))
-alt + shift + k 		: powershell -NoProfile ~\.config\scripts\killer.ps1
+alt + space				: powershell -NoProfile ~\.config\scripts\launchers\applauncher.ps1
+alt + shift + n 		: powershell -NoProfile ~\.config\scripts\launchers\run-with-nvim.ps1
+alt + shift + c			: powershell -NoProfile ~\.config\scripts\launchers\run-with-code.ps1 
+alt + ctrl + k 			: powershell -NoProfile ~\.config\scripts\launchers\killer.ps1
+# sharex
+alt + s 				: sharex -s -RectangleRegion -autoclose
+alt + shift + s			: sharex -s -ScreenRecorder -autoclose
+# zen-browser
+alt + p 				: zen
+alt + shift + p			: zen --private
+# < --- /// END OF CUSTOM HOTKEYS /// --- >
 
 alt + q                 : komorebic close
 alt + m                 : komorebic minimize

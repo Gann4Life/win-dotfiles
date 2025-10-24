@@ -1,5 +1,14 @@
 {
   "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/master/schema.asc.json",
+  "Krita": {
+    "tray_and_multi_window": [
+      {
+        "kind": "Exe",
+        "id": "krita.exe",
+        "matching_strategy": "Equals"
+      }
+    ]
+  },
   "Wezterm": {
     "floating": [
       {
@@ -2651,6 +2660,13 @@
     ]
   },
   "Unity Hub": {
+    "floating": [
+      {
+        "kind": "Exe",
+        "id": "Unity Hub.exe",
+        "matching_strategy": "Equals"
+      }
+    ],
     "tray_and_multi_window": [
       {
         "kind": "Exe",

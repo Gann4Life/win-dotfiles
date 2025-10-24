@@ -1,4 +1,4 @@
-. ~\.config\scripts\floating-window.ps1
+. ~\.config\scripts\_lib\scriptlib.ps1
 
 Start-FloatingWindow {
     Set-Location ~

@@ -3,11 +3,13 @@
   "app_specific_configuration_path": "$Env:USERPROFILE/applications.json",
   "window_hiding_behaviour": "Cloak",
   "cross_monitor_move_behaviour": "Insert",
+  "mouse_follows_focus": false,
   "default_workspace_padding": 10,
   "default_container_padding": 10,
   "border": true,
   "border_width": 4,
   "border_offset": -1,
+  "float_rule_placement": "Center",
   "theme": {
     "palette": "Catppuccin",
     "name": "Mocha",

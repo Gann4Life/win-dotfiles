@@ -1,0 +1,1 @@
+wezterm-gui -e yazi ~\Desktop
