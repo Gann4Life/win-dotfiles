@@ -4,7 +4,7 @@
 
 # // CORE TOOLS SETUP (Requires scoop to be installed) //
 # CLI Tools
-# scoop install git gitui sudo fzf grep neovim yazi starship btop ffmpeg curl fastfetch cava python
+# scoop install git gitui sudo fzf fd grep neovim yazi starship btop ffmpeg curl fastfetch cava python
 # Tiling WM
 # scoop install komorebi whkd yasb
 # Programs / GUI
@@ -60,3 +60,9 @@
 # // FINISHING //
 # Prompt user to activate windows (yes/no)
 # If positive, run 'iwr -useb https://get.activated.win | iex'
+#
+# Ask user to hide taskbar (yes/no)
+# Download https://github.com/amnweb/thide/releases/download/v0.1.0/thide.exe if positive.
+# Also we assume that .\.config\ folder exists.
+# iwr -useb https://github.com/amnweb/thide/releases/download/v0.1.0/thide.exe .\.config\thide.exe
+# .\.config\thide.exe enable-autostart

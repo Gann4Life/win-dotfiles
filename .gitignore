@@ -1,3 +1,4 @@
 *.log
 .config/yasb/yasb.log
 .config/jgit
+.config/thide.exe

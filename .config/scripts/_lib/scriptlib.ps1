@@ -19,5 +19,5 @@ function Send-Notification {
 		[string] $Description
 	)
 
-	python $HOME\.config\scripts\lib\notify.py $Title $Description
+	python $HOME\.config\scripts\_lib\notify.py $Title $Description
 }
