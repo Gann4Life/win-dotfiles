@@ -19,7 +19,7 @@ alt + shift + vk_return	: powershell -NoProfile ~\.config\scripts\launchers\scra
 alt + e					: powershell -NoProfile ~\.config\scripts\launchers\filebrowser.ps1 #wezterm-gui -e yazi ~\Desktop
 alt + n         		: powershell -NoProfile ~\.config\scripts\launchers\notes.ps1
 alt + c 				: code
-# alt + g 				: wezterm-gui -e gitui
+alt + g 				: powershell -NoProfile ~\.config\scripts\launchers\gitui.ps1
 
 alt + shift + m 		: wezterm-gui -e btop
 # FZF FLOATING WINDOWS
